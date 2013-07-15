@@ -6,4 +6,8 @@ class Node
     @left = left
     @right = right
   end
+
+  def leaf?
+    left.nil? && right.nil?
+  end
 end
