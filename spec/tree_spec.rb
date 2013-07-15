@@ -45,4 +45,35 @@ describe Tree do
       end
     end
   end
+
+  describe 'Traversal' do
+    before do
+      @tree = Tree.new
+      @node_itself_object = 2
+      @left_object = 1
+      @right_object = 3
+      @tree.insert(@node_itself_object)
+      @tree.insert(@left_object)
+      @tree.insert(@right_object)
+    end
+
+    describe '#preorder' do
+      it 'should visit the node itself first, followed by the left node and lastly the right node' do
+        @tree.preorder { |node| node.to_s }
+      end
+    end
+
+    describe '#inorder' do
+      it 'should visit the left node first, followed by node itself and lastly the right node' do
+        @tree.inorder { |node| node }
+      end
+    end
+
+    describe '#postorder' do
+      it 'should visit the left node first, followed by the right node and lastly the node itself' do
+        @tree.postorder { |node| node }
+      end
+    end
+  end
+
 end

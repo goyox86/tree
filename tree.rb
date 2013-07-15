@@ -32,6 +32,32 @@ class Tree
     insert_at(@root, obj)
   end
 
+  def preorder(node = @root, &block)
+    return unless node
+
+    yield node
+    preorder(node.left, &block)
+    preorder(node.right, &block)
+  end
+
+  def inorder(node = @root, &block)
+    return unless node
+
+    inorder(node.left, &block)
+    yield node
+    inorder(node.right, &block)
+  end
+
+  def postorder(node = @root, &block)
+    return unless node
+
+    postorder(node.left, &block)
+    postorder(node.right, &block)
+    yield node
+  end
+
+  private
+
   def insert_at(node, obj)
     if obj < node.obj
       root.left ? insert_at(root.left, obj) : root.left = Node.new(obj)
