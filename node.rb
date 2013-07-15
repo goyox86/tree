@@ -1,9 +1,9 @@
 class Node
   attr_accessor :left, :right, :obj
 
-  def initialize(left, right, obj)
+  def initialize(obj, left = nil, right = nil)
+    @obj = obj
     @left = left
     @right = right
-    @obj = obj
   end
 end
