@@ -97,9 +97,10 @@ class Tree
     stack = []
 
     stack.push(@root)
-    while stack.length > 0
+    until stack.empty?
       node = stack.pop
       yield node
+
       stack.push(node.right) if node.right
       stack.push(node.left) if node.left
     end
