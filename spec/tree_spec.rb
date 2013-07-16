@@ -103,4 +103,36 @@ describe Tree do
       end
     end
   end
+
+  describe '#min' do
+    it 'should return the node holding the smallest object/key' do
+      @tree.insert(2)
+      @tree.insert(1)
+      @tree.insert(3)
+      @tree.insert(-1)
+      @tree.insert(-2)
+      @tree.insert(-3)
+      @tree.min.obj.should == -3
+    end
+
+    it 'should return nil when empty' do
+      @tree.min.should be_nil
+    end
+  end
+
+  describe '#max' do
+    it 'should return the node holding the smallest object/key' do
+      @tree.insert(2)
+      @tree.insert(1)
+      @tree.insert(3)
+      @tree.insert(-1)
+      @tree.insert(-2)
+      @tree.insert(-3)
+      @tree.max.obj.should == 3
+    end
+
+    it 'should return nil when empty' do
+      @tree.max.should be_nil
+    end
+  end
 end

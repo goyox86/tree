@@ -13,6 +13,30 @@ class Tree
     
   end
 
+  def min
+    return nil if empty?
+
+    root = @root
+    while root
+      return root unless root.left
+      root = root.left
+    end
+
+    root
+  end
+
+  def max
+    return nil if empty?
+
+    root = @root
+    while root
+      return root unless root.right
+      root = root.right
+    end
+
+    root
+  end
+
   def find(obj)
     return nil if empty?
 
