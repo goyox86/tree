@@ -13,6 +13,12 @@ class Tree
     
   end
 
+  def height(node = @root)
+    return 0 unless node
+
+    [height(node.left), height(node.right)].max + 1
+  end
+
   def min
     return nil if empty?
 

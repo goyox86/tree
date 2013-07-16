@@ -135,4 +135,24 @@ describe Tree do
       @tree.max.should be_nil
     end
   end
-end
+
+  describe '#heigth' do
+    it 'should return the correct height when the tree is not empty' do
+      @tree.insert(2)
+      @tree.insert(1)
+      @tree.insert(3)
+      @tree.height.should == 2
+    end
+
+    it 'should return a non-zero height when the tree is not empty' do
+      @tree.insert(2)
+      @tree.insert(1)
+      @tree.insert(3)
+      @tree.height.should > 0
+    end
+
+    it 'should return zero height when the tree is empty' do
+      @tree.height.should be_zero
+    end
+  end
+end  
