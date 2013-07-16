@@ -93,6 +93,18 @@ class Tree
     preorder(node.right, &block)
   end
 
+  def preorder_iterative(&block)
+    stack = []
+
+    stack.push(@root)
+    while stack.length > 0
+      node = stack.pop
+      yield node
+      stack.push(node.right) if node.right
+      stack.push(node.left) if node.left
+    end
+  end
+
   def inorder(node = @root, &block)
     return unless node
 

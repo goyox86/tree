@@ -65,9 +65,15 @@ describe Tree do
       end
     end
 
+    describe '#preorder_iterative' do
+      it 'should visit the node itself first, followed by the left node and lastly the right node' do
+        @tree.preorder_iterative { |node| node.to_s }
+      end
+    end
+
     describe '#inorder' do
       it 'should visit the left node first, followed by node itself and lastly the right node' do
-        @tree.inorder { |node| node }
+        @tree.inorder { |node| node.to_s }
       end
     end
 
