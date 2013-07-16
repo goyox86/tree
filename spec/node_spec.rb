@@ -45,5 +45,18 @@ describe Node do
         node.should_not be_leaf
       end
     end
+
+    describe '#empty?' do
+      it 'should return true when there are no nodes A.K.A root is nil' do
+        tree = Tree.new
+        tree.should be_empty
+      end
+
+      it 'should return false when there is at least a node A.K.A root is not nil' do
+        tree = Tree.new
+        tree.insert(1)
+        tree.should_not be_empty
+      end
+    end
   end
 end

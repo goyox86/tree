@@ -6,42 +6,44 @@ describe Tree do
     @tree = Tree.new
   end
 
-  describe '#insert' do
-    describe 'Empty Tree' do
-      it 'should correctly insert the given object' do
-        @tree.insert(1)
-        @tree.root.obj.should == 1
+  describe 'Insertion' do
+    describe '#insert' do
+      describe 'Empty Tree' do
+        it 'should correctly insert the given object' do
+          @tree.insert(1)
+          @tree.root.obj.should == 1
+        end
+      end
+
+      describe 'Non-Empty Tree' do
+        it 'should correctly insert the given object' do
+          @tree.insert(2)
+          @tree.insert(1)
+          @tree.insert(3)
+          @tree.root.obj.should == 2
+          @tree.root.left.obj.should == 1
+          @tree.root.right.obj.should == 3
+        end
       end
     end
 
-    describe 'Non-Empty Tree' do
-      it 'should correctly insert the given object' do
-        @tree.insert(2)
-        @tree.insert(1)
-        @tree.insert(3)
-        @tree.root.obj.should == 2
-        @tree.root.left.obj.should == 1
-        @tree.root.right.obj.should == 3
+    describe '#insert_recursive' do
+      describe 'Empty Tree' do
+        it 'should correctly insert the given object' do
+          @tree.insert_recursive(1)
+          @tree.root.obj.should == 1
+        end
       end
-    end
-  end
 
-  describe '#insert_recursive' do
-    describe 'Empty Tree' do
-      it 'should correctly insert the given object' do
-        @tree.insert_recursive(1)
-        @tree.root.obj.should == 1
-      end
-    end
-
-    describe 'Non-Empty Tree' do
-      it 'should correctly insert the given object' do
-        @tree.insert_recursive(2)
-        @tree.insert_recursive(1)
-        @tree.insert_recursive(3)
-        @tree.root.obj.should == 2
-        @tree.root.left.obj.should == 1
-        @tree.root.right.obj.should == 3
+      describe 'Non-Empty Tree' do
+        it 'should correctly insert the given object' do
+          @tree.insert_recursive(2)
+          @tree.insert_recursive(1)
+          @tree.insert_recursive(3)
+          @tree.root.obj.should == 2
+          @tree.root.left.obj.should == 1
+          @tree.root.right.obj.should == 3
+        end
       end
     end
   end
@@ -76,4 +78,29 @@ describe Tree do
     end
   end
 
+  describe 'Deletion' do
+    pending 'Implement me please!'
+    describe 'On a leaf node' do
+      it 'should remove the node if this is a leaf' do
+      end
+    end
+  end
+
+  describe 'Finding' do
+    describe '#find' do
+      it 'should return the node holding the given key' do
+        @tree.insert(2)
+        @tree.insert(1)
+        @tree.insert(3)
+        @tree.find(1).obj.should == 1
+      end
+
+      it 'should return the nil when a node holding the given key does not exist in the tree' do
+        @tree.insert(2)
+        @tree.insert(1)
+        @tree.insert(3)
+        @tree.find(4).should be_nil
+      end
+    end
+  end
 end

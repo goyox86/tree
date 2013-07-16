@@ -5,8 +5,31 @@ class Tree
     @root = nil
   end
 
+  def empty?
+    @root.nil?
+  end
+
+  def delete(obj)
+    
+  end
+
+  def find(obj)
+    return nil if empty?
+
+    root = @root
+    while root
+      return root if obj == root.obj
+
+      if obj < root.obj
+        root = root.left
+      else
+        root = root.right
+      end
+    end
+  end
+
   def insert(obj)
-    unless @root
+    if empty?
       @root = Node.new(obj)
       return
     end
@@ -24,7 +47,7 @@ class Tree
   end
 
   def insert_recursive(obj)
-    unless @root
+    if empty?
       @root = Node.new(obj)
       return
     end
