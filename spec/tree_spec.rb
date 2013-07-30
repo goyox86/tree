@@ -161,4 +161,17 @@ describe Tree do
       @tree.height.should be_zero
     end
   end
+
+  describe '#lca' do
+    it 'foo' do
+      @tree.insert(20)
+      @tree.insert(8)
+      @tree.insert(22)
+      @tree.insert(4)
+      @tree.insert(12)
+      @tree.insert(10)
+      @tree.insert(14)
+      @tree.lca(14, 4).obj.should == 8
+    end
+  end
 end  

@@ -173,6 +173,23 @@ class Tree
     yield node
   end
 
+  # Finds the LCA (Lowest common ancestor) between two given nodes
+  #
+  # @param [Node] root note to start from.
+  # @param obj_a first object to find LCA.
+  # @param obj_b second object to find LCA.
+  # @return [Node] the LCA of obj_a and obj_b
+  # @note this implementation uses iteration.
+  def lca(root = @root, obj_a, obj_b)
+    if root.obj > obj_a && root.obj > obj_b
+      lca(root.left, obj_a, obj_b)
+    elsif root.obj < obj_a && root.obj < obj_b
+      lca(root.right, obj_a, obj_b)
+    else
+      return root
+    end
+  end
+
   # Performs preorder traversal (Root, Left, Right).
   #
   # @param [Node] node the node to start from.
